@@ -27,12 +27,10 @@ function pcap_header(filename::String)::Union{Header, Int}
 	# Header 0x00-0x18 (24 octets)
 	io = open(filename, "r")
 	magicnum = read(io, UInt32)
-	if magicnum != 0xA1B2C3D4
-		if magicnum != 0xA1B23C4D
-			println("\nInvalid file format!")
-			close(io)
-			return 1
-		end
+	if magicnum != 0xA1B2C3D4 || magicnum != 0xA1B23C4D
+		println("\nInvalid file format!")
+		close(io)
+		return 1
 	end
 	majv = read(io, UInt16)		
 	minv = read(io, UInt16)		
