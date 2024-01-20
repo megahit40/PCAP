@@ -68,7 +68,7 @@ function dumpcap(file::String, num::Int64)::Nothing
 		print(", snapshot length ", header.snaplen,"\n")
 	end
 	# first frame begins at 0x18
-	frame = get_eth_frame(file, 0x18, header.linktype)
+	frame = _get_eth_frame(file, 0x18, header.linktype)
 	print(Dates.unix2datetime(frame.epoch),".",frame.nano)
 	print(" ")
 	ip = ip_packet(frame)
@@ -88,7 +88,7 @@ function dumpcap(file::String, num::Int64)::Nothing
 	for n in 2:num
 		frame
 		if frame.next != 0
-			frame = get_eth_frame(file, frame.next, header.linktype)
+			frame = _get_eth_frame(file, frame.next, header.linktype)
 			i += 1
 		else
 			println("$i frames read")
