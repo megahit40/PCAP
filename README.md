@@ -34,7 +34,7 @@ julia> dnsdf = PCAP.dns_dataframe(file, n)
 > Pretty print
 
 ```julia
-frame = PCAP.capframe(file, n)
-PCAP.prettyprint(frame)
+julia> frame = PCAP.capframe(file, n)
+julia> PCAP.prettyprint(frame)
 ```
 
