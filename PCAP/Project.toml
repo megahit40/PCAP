@@ -4,4 +4,5 @@ authors = ["debian "]
 version = "0.1.0"
 
 [deps]
-Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
