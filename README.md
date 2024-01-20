@@ -44,7 +44,7 @@ julia> frame = PCAP.capframe(file, n)
 julia> PCAP.prettyprint(frame)
 ```
 
-## Dump `tcpdump` style
+## Dump `tcpdump` style (Currently broken ...)
 
 ```julia
 julia> PCAP.dumpcap(file)
