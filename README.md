@@ -44,3 +44,11 @@ julia> frame = PCAP.capframe(file, n)
 julia> PCAP.prettyprint(frame)
 ```
 
+## Dump `tcpdump` style
+
+```julia
+julia> PCAP.dumpcap(file)
+# Or n number of frames
+julia> PCAP.dumpcap(file, n)
+```
+
