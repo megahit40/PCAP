@@ -4,9 +4,9 @@ struct TCP
 	dstport::UInt16
 	seq::UInt32
 	ackno::UInt32
-	# len + flag is UInt16 bitstring ...
-	len::UInt8 #bitstring ...
-	flag::UInt8 #bitstring ...
+	# len + flag is UInt16 bitstring
+	len::UInt8 		# bitstring ...
+	flag::UInt8 		# bitstring ...
 	win::UInt16 
 	checksum::UInt16
 	urgptr::UInt16
@@ -26,16 +26,15 @@ function tcp_segment_IPv4_raw(packet::IPv4)
 			payload)
 end
 
-
-# On a pure listening device the 'payload'
-# can be three things:
-# 1. option field because data can not be sent 
-# before a 3-way handshake is completed.
-# or 
-# 2. Padding or 'trailer'. Should be zeroes. If not,
-# "non-zero" padding exists.
-# or
-# 3. Options AND padding ?
+## On a pure listening device the 'payload'
+## can be three things:
+## 1. option field because data can not be sent 
+## before a 3-way handshake is completed.
+## or 
+## 2. Padding or 'trailer'. Should be zeroes. If not,
+## "non-zero" padding exists.
+## or
+## 3. Options AND padding ?
 
 function tcp_segment(packet::IPv4)
 	if packet.proto != 6
