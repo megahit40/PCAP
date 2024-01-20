@@ -14,7 +14,7 @@ julia> file = "path/to/capfile.cap"
 julia> PCAP.capinfo(file)
 ```
 
-## dataframes:
+## Dataframes:
 
 ```julia
 julia> file = "path/to/file.cap"
