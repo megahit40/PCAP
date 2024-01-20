@@ -206,7 +206,7 @@ function udp_dataframe(file::String, no_frames::Int)::DataFrame
 end
 
 
-function _dns_qname_qtype_qclass(dns_query::Union{Vector{DNS_query}, Nothing}, qdcount::UInt16)
+function _dns_qname_qtype_qclass(dns_query::Union{Vector{DNS_query}, Nothing}, qdcount::UInt16)::Tuple
 	if dns_query == nothing
 		return "", 0, 0
 	end
@@ -220,7 +220,7 @@ function _dns_qname_qtype_qclass(dns_query::Union{Vector{DNS_query}, Nothing}, q
 end
 
 
-function dns_dataframe(file::String, no_frames::Int)
+function dns_dataframe(file::String, no_frames::Int)::DataFrame
 	io = open(file)
 	header = _pcap_header(io)
 	frame = _get_eth_frame(io, header.linktype)
