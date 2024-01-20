@@ -8,7 +8,7 @@ struct UDP
 end
 
 
-function udp_datagram(packet::IPv4)
+function udp_datagram(packet::IPv4)::Union{UDP, Nothing}
 	if packet.proto != 0x11
 		return nothing
 	end
