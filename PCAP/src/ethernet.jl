@@ -49,13 +49,13 @@ end
 function eth_frame_II(io::IOStream)::EthernetIIframe
 	pos = position(io)
 	epoch = read(io, UInt32)
-	nano = read(io, UInt32) # or micro ...
+	nano = read(io, UInt32) 	# or micro ...
 	inclen = read(io, UInt32)
 	origlen = read(io, UInt32)
-	dstmac = read(io, 6) # see parseMAC()
+	dstmac = read(io, 6) 		# see parseMAC()
 	srcmac = read(io, 6)
 	type = ntoh(read(io, UInt16))
-	data = read(io, inclen-14) # - type, dst, src
+	data = read(io, inclen-14) 	# - type, dst, src
 	next = position(io)
 	if eof(io) == true
 		next = 0
