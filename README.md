@@ -3,17 +3,23 @@ Julia PCAP parser
 
 # Usage
 
->in Julia REPL
+```julia
+julia> include("path/to/PCAP.jl")
+
+```
+> CAP-file info
 
 ```julia
-include("path/to/PCAP.jl")
-file = "path/to/file.cap"
+julia> file = "path/to/capfile.cap"
+julia> PCAP.capinfo(file)
 ```
+
 > dataframes:
 
-```
-ipdf = PCAP.ip_dataframe(file)
-tcpdf = PCAP.tcp_dataframe(file)
-udpdf = PCAP.udp_dataframe(file)
-dnsdf = PCAP.dns_dataframe(file)
+```julia
+julia> file = "path/to/file.cap"
+julia> ipdf = PCAP.ip_dataframe(file)
+julia> tcpdf = PCAP.tcp_dataframe(file)
+julia> udpdf = PCAP.udp_dataframe(file)
+julia> dnsdf = PCAP.dns_dataframe(file)
 ```
